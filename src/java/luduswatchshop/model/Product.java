@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package luduswatchshop.model;
 
 import java.sql.Date;
 
-/**
- *
- * @author Admin
- */
 public class Product {
 
     private int id;
@@ -46,8 +38,6 @@ public class Product {
         this.category = category;
         this.supplier = supplier;
     }
-    
-    
 
     public int getId() {
         return id;
@@ -165,6 +155,5 @@ public class Product {
     public String toString() {
         return "Product{" + "id=" + id + ", name=" + name + ", dialColor=" + dialColor + ", caseSize=" + caseSize + ", movement=" + movement + ", price=" + price + ", quantity=" + quantity + ", starRating=" + starRating + ", discount=" + discount + ", image=" + image + ", releaseDate=" + releaseDate + ", salePrice=" + salePrice + ", category=" + category + ", supplier=" + supplier + '}';
     }
-    
-    
+
 }

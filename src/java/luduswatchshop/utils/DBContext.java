@@ -7,10 +7,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DBContext {
-    protected Connection connection;
-    public DBContext()
-    {
 
+    protected Connection connection;
+
+    public DBContext() {
         try {
             String user = "sa";
             String pass = "Dat123456";
@@ -20,7 +20,7 @@ public class DBContext {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
 }
