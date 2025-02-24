@@ -2,46 +2,53 @@ package luduswatchshop.model;
 
 public class Category {
 
-    private int id;
-    private String name;
-    private String describe;
+    private int categoryID;        // Category ID
+    private String categoryName;   // Category name
+    private String description;     // Description
 
+    // Default constructor
     public Category() {
     }
 
-    public Category(int id, String name, String describe) {
-        this.id = id;
-        this.name = name;
-        this.describe = describe;
+    // Constructor with parameters
+    public Category(int categoryID, String categoryName, String description) {
+        this.categoryID = categoryID;
+        this.categoryName = categoryName;
+        this.description = description;
     }
 
-    public int getId() {
-        return id;
+    // Getters and Setters
+    public int getCategoryID() {
+        return categoryID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
     }
 
-    public String getName() {
-        return name;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
-        return "Category{" + "id=" + id + ", name=" + name + ", describe=" + describe + '}';
+        return "Category{"
+                + "categoryID=" + categoryID
+                + ", categoryName='" + categoryName + '\''
+                + ", description='" + description + '\''
+                + '}';
     }
 
 }

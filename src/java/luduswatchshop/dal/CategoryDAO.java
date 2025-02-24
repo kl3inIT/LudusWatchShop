@@ -20,14 +20,13 @@ public class CategoryDAO extends DBContext {
         try (PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 Category category = new Category();
-                category.setId(rs.getInt("CategoryID"));
-                category.setName(rs.getString("CategoryName"));
-                category.setDescribe(rs.getString("Description"));
+                category.setCategoryID(rs.getInt("CategoryID"));
+                category.setCategoryName(rs.getString("CategoryName"));
+                category.setDescription(rs.getString("Description"));
                 categoryList.add(category);
             }
         } catch (SQLException e) {
-            System.err.println("Error fetching categories: " + e.getMessage());
-            throw new RuntimeException("Failed to fetch categories", e);
+            LOGGER.log(Level.SEVERE, "Error fetching category", e);
         }
         return categoryList;
     }
@@ -38,15 +37,15 @@ public class CategoryDAO extends DBContext {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    Category c = new Category();
-                    c.setId(rs.getInt("CategoryID"));
-                    c.setName(rs.getString("CategoryName"));
-                    c.setDescribe(rs.getString("Description"));
-                    return c;
+                    Category category = new Category();
+                    category.setCategoryID(rs.getInt("CategoryID"));
+                    category.setCategoryName(rs.getString("CategoryName"));
+                    category.setDescription(rs.getString("Description"));
+                    return category;
                 }
             }
         } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "Error fetching category with ID " + id, e);
+            LOGGER.log(Level.SEVERE, String.format("Error fetching category with ID %d", id), e);
         }
         return null;
     }

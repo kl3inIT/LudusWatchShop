@@ -4,26 +4,28 @@ import java.sql.Date;
 
 public class Product {
 
-    private int id;
-    private String name;
-    private String dialColor;
-    private String caseSize;
-    private String movement;
-    private double price;
-    private int quantity;
-    private int starRating;
-    private double discount;
-    private String[] image;
-    private Date releaseDate;
-    private double salePrice;
-    private Category category;
-    private Supplier supplier;
+    private int productID;         // Product ID
+    private String name;           // Product name
+    private String dialColor;      // Dial color
+    private String caseSize;       // Case size
+    private String movement;       // Movement type
+    private double price;          // Price
+    private int quantity;          // Quantity in stock
+    private int starRating;        // Star rating
+    private double discount;       // Discount
+    private String[] image;        // Array of image URLs
+    private Date releaseDate;      // Release date
+    private double salePrice;      // Sale price
+    private Category category;      // Associated category
+    private Brand brand;           // Associated brand
 
+    // Default constructor
     public Product() {
     }
 
-    public Product(int id, String name, String dialColor, String caseSize, String movement, double price, int quantity, int starRating, double discount, String[] image, Date releaseDate, double salePrice, Category category, Supplier supplier) {
-        this.id = id;
+    // Constructor with parameters
+    public Product(int productID, String name, String dialColor, String caseSize, String movement, double price, int quantity, int starRating, double discount, String[] image, Date releaseDate, double salePrice, Category category, Brand brand) {
+        this.productID = productID;
         this.name = name;
         this.dialColor = dialColor;
         this.caseSize = caseSize;
@@ -36,15 +38,16 @@ public class Product {
         this.releaseDate = releaseDate;
         this.salePrice = salePrice;
         this.category = category;
-        this.supplier = supplier;
+        this.brand = brand;
     }
 
-    public int getId() {
-        return id;
+    // Getters and Setters
+    public int getProductID() {
+        return productID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setProductID(int productID) {
+        this.productID = productID;
     }
 
     public String getName() {
@@ -143,17 +146,31 @@ public class Product {
         this.category = category;
     }
 
-    public Supplier getSupplier() {
-        return supplier;
+    public Brand getBrand() {
+        return brand;
     }
 
-    public void setSupplier(Supplier supplier) {
-        this.supplier = supplier;
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", name=" + name + ", dialColor=" + dialColor + ", caseSize=" + caseSize + ", movement=" + movement + ", price=" + price + ", quantity=" + quantity + ", starRating=" + starRating + ", discount=" + discount + ", image=" + image + ", releaseDate=" + releaseDate + ", salePrice=" + salePrice + ", category=" + category + ", supplier=" + supplier + '}';
+        return "Product{"
+                + "productID=" + productID
+                + ", name='" + name + '\''
+                + ", dialColor='" + dialColor + '\''
+                + ", caseSize='" + caseSize + '\''
+                + ", movement='" + movement + '\''
+                + ", price=" + price
+                + ", quantity=" + quantity
+                + ", starRating=" + starRating
+                + ", discount=" + discount
+                + ", image=" + String.join(", ", image)
+                + ", releaseDate=" + releaseDate
+                + ", salePrice=" + salePrice
+                + ", category=" + category
+                + ", brand=" + brand
+                + '}';
     }
-
 }
