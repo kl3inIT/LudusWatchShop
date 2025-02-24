@@ -1,4 +1,3 @@
-
 package luduswatchshop.dal;
 
 import java.util.ArrayList;
@@ -11,18 +10,14 @@ import java.sql.SQLException;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
-/**
- *
- * @author Admin
- */
 public class BrandDAO extends DBContext {
+
     private static final Logger LOGGER = Logger.getLogger(BrandDAO.class.getName());
 
     public List<Brand> getAll() {
         List<Brand> brandList = new ArrayList<>();
         String sql = "SELECT BrandID, BrandName, Country, BrandImage, Phone, HomePage FROM Brands";
-        try (PreparedStatement ps = connection.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+        try (PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 Brand brand = new Brand();
                 brand.setBrandID(rs.getInt("BrandID"));
